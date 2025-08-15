@@ -10,7 +10,6 @@
 git init
 git branch -M main
 Create a Folder/Repository in github "myPyScripts"
-git add .
-git commit -m "Initial commit"
+git remote add origin https://github.com/bmogotsi/myPyScripts.git
 git push -u origin main
 ###
