@@ -13,3 +13,14 @@ Create a Folder/Repository in github "myPyScripts"
 git remote add origin https://github.com/bmogotsi/myPyScripts.git
 git push -u origin main
 ###
+
+## Create a package structure
+── package_name
+    ├── __init__.py
+    ├── subpackage1
+        ├── __init__.py
+        ├── module1.py
+    └── subpackage2
+        ├── __init__.py
+        ├── module2.py
+        

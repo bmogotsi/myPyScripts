@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: math_package
+Version: 0.1.0
+Summary: A simple math utility library
+Home-page: https://github.com/BMogotsi/myPyScripts/math_package
+Author: Ben Mogotsi
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: summary
+
+My Local Math Package
