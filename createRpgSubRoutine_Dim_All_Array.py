@@ -1,7 +1,21 @@
-# Get a text file bbbb.txt
+3# Get a text file bbbb.txt
 # Extraxt java logs
 # change to RPG eval statements
 # use regEx to extract and change
+
+""" Flow
+    1. open a chosen java logs text file
+    2. read the text file line by line
+        a. check if line is Stand Alone field or List field
+            field_and_value_separator = ["=", "]  Value [", " : "]
+            a01. skip if field value is blank, zero or empty
+            a02. if field is NOT Stand Alone or List
+                - get Request Handler name
+                - get Program name
+                - get Copybook name
+             a03. extract field name and field value
+        C. change to RPG eval statements
+"""
 
 import re, pathlib
 from datetime import datetime, timedelta, date
@@ -11,10 +25,11 @@ import traceback
 # inputpath = 'C:/Users/Ben.Mogotsi/Downloads/delete_/srcmbr/erp_LOADEPCCC_FIEPCRH_Raw.txt'
 inputpath = 'C:/Users/Ben.Mogotsi/Downloads/delete_/srcmbr/Member_Install_Error_Raw.txt'
 outputpath = 'C:/Users/Ben.Mogotsi/Downloads/delete_/srcmbr/'
-outputfile = 'RPG_Eval_Statements_FIEPCRH'
+outputfile = 'RPG_Eval_Statements_'
 field_value_Bracket_open = "["
 field_value_Bracket_close = "]"
-field_and_value_separator = ["=", "]  Value ["]
+field_and_value_separator = ["=", "]  Value [", " : "]
+field_value_is_blank = ["", " ", "0", "null", "",  "0.0","\n"]
 equal_Sign="="
 end_of_line=';'
 
@@ -30,14 +45,19 @@ try:
         """
         s= inStr
         c= inSeperator
+        i=s.index(c)
+
         i=0
         for idx, value in enumerate(c):
             if value in s:
                 i=s.index(value)
                 break
         if i == 0:
-            print(f"Error: invalid inSeperator, must be: {inSeperator} ")
-            raise ValueError(f"Error: invalid inSeperator, must be: {inSeperator}")
+           return '', ''
+
+
+            #print(f"Error: invalid inSeperator, must be: {inSeperator} ")
+            #raise ValueError(f"Error: invalid inSeperator, must be: {inSeperator}")
 
         bef = s[:i]
         aft = s[i+1:]
@@ -45,6 +65,7 @@ try:
         return bef,aft
 
     def checkForType(inStr, fieldName):
+
         #date
         pattern      = re.compile(r"[0-9]{4}-[0-9]{2}-[0-9]{2}")
         input_str    = inStr.strip()
@@ -313,8 +334,10 @@ try:
                     : # skip blank/zeros fields STAND Alone
                     continue
 
-            patternStandalone = re.compile(r"(\s+)?=(\s+)?\[(\w+)\]") #white
+            patternStandalone = re.compile(r"(\s+)?=(\s+)?\[(\w+)\]")
+            patternStandalone2 = re.compile(r"\](\s+)?Value(\s+)?\[\w+\]") # occurs=[10]
             patternList = re.compile(r"(\w+)(\s+)?=(\s+)?0\)")
+            patternList2 = re.compile(r"\](\s+)?value(\s+)?\[\[\w+\]\]")
             patternOccurs = re.compile(r"occurs(\s+)?=(\s+)?")
             field_is_Standalone = False
             field_is_List = False
@@ -351,7 +374,7 @@ try:
                 continue
 
             bef, aft = fieldNameAndValue(l.strip(), field_and_value_separator)
-            if bef == '' or aft == '':
+            if bef in field_value_is_blank or aft in field_value_is_blank:
                 continue
 
             if re.search(patternOccurs, l.lower()):
@@ -363,7 +386,6 @@ try:
 
             if field_is_Standalone == True:
                 ret_aft = str(returnRpgStatement(aft,bef)) #mask the field value based on Field Type (date/TimeStamp/Int...)
-
             if field_is_List == True:
                 ret_aft = get_Dimensions(aft)
 
