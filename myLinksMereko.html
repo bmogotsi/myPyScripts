@@ -1,0 +1,128 @@
+<!DOCTYPE=HTML>
+<html>
+  <style type="text/css">
+    .oneLink {color: blue;}
+    #linksState {display: none;}
+  </style>
+  <script type="text/javascript">
+    function buildLinks(obj) {
+	  d0 = document.getElementById('linksState');
+	  linksText = d0.innerHTML;
+	  var linksObj = JSON.parse(linksText);
+	  d1 = document.getElementById('playGround');
+	  console.log(linksObj);
+	  theseLinks = linksObj.links;
+	  theseLinks.forEach(function(thisLink){
+		console.log(thisLink);
+		for (linkName in thisLink) {
+		  console.log(linkName);
+		  dI = document.createElement('div');
+		  dI.setAttribute('className', 'oneLink');
+		  d1.appendChild(dI);
+		  aI = document.createElement('a');
+		  dI.appendChild(aI);
+		  aI.innerHTML = linkName;
+		  aI.setAttribute('href',thisLink[linkName]);
+		  aI.setAttribute('target','_blank');
+		}
+	  });
+	  
+	}
+  </script>
+<head>
+</head>
+<body onload="buildLinks(this)">
+  <h1>Important Links</h1>
+  <h2>Work related</h2>
+  <div id="playGround">
+  </div>
+  <div id="linksState">
+    {"links": [
+	   
+	   {"GOOGLE": "https://www.google.com/"},
+	   {"Isabelo": "https://protect-za.mimecast.com/s/oNqeCwjgxwHG74W7OCVD_Gi?domain=u10263151.ct.sendgrid.net"},
+	   {"Non Distructive Release Board":"https://inside.momentummetropolitan.co.za/jira/secure/RapidBoard.jspa?rapidView=589&projectKey=MCBT"},
+	   {"Service DEsk Jira": "https://inside.momentummetropolitan.co.za/jira/servicedesk/customer/portals"},
+	   {"Production Support Incidents": "https://inside.momentummetropolitan.co.za/wikis/home?lang=en-us#!/wiki/Wbe1924081d96_4b4e_afc6_378978505583/page/Production%20support" },
+	   {"Momentum Intranet": "https://mmiholdingsltd.sharepoint.com/"},
+	   {"My Momentum": "https://www.momentum.co.za/momentum/login#/"},
+	   {"Obirt Portal Training":"http://admin5.faw-test.momentum.co.za/cacApp/Main/HOME"},
+	   {"Intergration Test":"http://admin3.faw-test.momentum.co.za/"},
+	   {"Prod Mirror access":"http://admin1.faw-test.momentum.co.za"},
+	   {"Library Momentum Corporate RPG Developers":"https://inside.momentummetropolitan.co.za/communities/service/html/communityoverview?communityUuid=fb839916-105f-4e0b-a4e4-b0f17c388e2a#fullpageWidgetId=W0b7a68b1c1d2_4603_9437_dddf533eea4b&folder=%257B500E8A61-0000-CB1A-A735-7F9EE3A637F6%257D"},
+	   {"Employer Portal Training":"http://erp5.faw-test.momentum.co.za/"},
+	   {"PERFORMANCE EXCELENCE": "https://mmhc.momentummetropolitan.co.za/psc/HRPROD/EMPLOYEE/HRMS/c/MP_ROLE_EMPLOYEE.MP_PE_DASHBOARD.GBL?Page=MP_PE_CURR_REVIEW"},
+	   {"Profiler":"http://mmiapp.mmiholdings.co.za/Profiler/"},
+	   {"PeopleSoft":"https://mmhc.momentummetropolitan.co.za/psc/HRPROD/EMPLOYEE/HRMS/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?PeopleSoft"},
+	   {"VC meeting (CAB) - Connect 1100 and Name": "https://protect-za.mimecast.com/s/gVMPCg5XyEHAPx9ZRfN8Lzo?domain=vc.momentummetropolitan.co.za/"},
+	   {"BugZila" : "http://bugs.faw.momentum.co.za/"},
+	   {"Report error services on Production" : "http://fawwebmiscprod1.momentum.co.za:11181/reportingservices-ack/home.jsf"},
+	   {"Intergration Orbit portal":"http://http://admin3.faw-test.momentum.co.za"},
+	   {"MCBT Jira": "https://inside.momentummetropolitan.co.za/jira/secure/Dashboard.jspa"},
+	   {"Orbit Portal Integration": "https://admin3.faw-test.momentum.co.za/"},
+	   {"Report Server Setup Wiki": "http://wiki2.faw.momentum.co.za/wiki/components/reportserver/reportserver"},
+	   {"RPG Community": "https://inside.momentummetropolitan.co.za/wikis/home?lang=en-za#!/wiki/Wbe1924081d96_4b4e_afc6_378978505583"},
+	   {"Portal Environments": "http://wiki2.faw.momentum.co.za/wiki/infrastructure/web/non-production-environment-web-login-details/"},
+	   {"Access Request": "https://inside.momentummetropolitan.co.za/jira/servicedesk/customer/portal/1/create/192"},
+	   {"RPG IV @Work": "http://www.rpgiv.info/mambo/index.php?option=com_content&task=category&sectionid=6&id=21&Itemid=55"},
+	   {"Programmers Sample Guide": "https://www.mysamplecode.com/"},
+	   {"RPG Programming projects": "http://martinvt.com/"},
+	   {"Report Program Generator":"http://www.isoftwerks.net/RPG001.htm"},
+	   {"RPG OPEN SOURCE DOWNLOADS": "https://mowyourlawn.com/index.html#download"},
+	   {"SQL ": "https://razorsql.com/index.html"},
+	   {"SQL for db2": "http://www.isoftwerks.net/SQL001.htm"},
+	   {"JAVA ": "https://www.javatpoint.com/java-tutorial"},
+	   {"IBM i Knowledge Sharing": "https://mmiholdingsltd.sharepoint.com/sites/IBMiKnowledgeSharing/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FIBMiKnowledgeSharing%2FShared%20Documents%2FGeneral&p=true&ct=1648539463184&or=Teams%2DHL&ga=1"},
+	   {"EB Java Developer Resource: " : "http://mebblddev201.metmom.mmih.biz/"},
+	   {"MMI Internal Posts - Careers: " : "https://momentummetropolitan.internal.erecruit.co/candidateapp/Jobs/Browse"},
+	   {"BA Pre Release JIRA Board: " :  "https://inside.momentummetropolitan.co.za/jira/secure/RapidBoard.jspa?rapidView=563&projectKey=MCBT"},
+	   	   {"Momentum Corporate Online Learning Portal: " :  "https://learningmanagereu.adobe.com/mmh"},
+	   {"JIRA-SD Knowledge Base Articles: Momentum Corporate Orbit Support- Search How To..." :  "https://inside.momentummetropolitan.co.za/jira/servicedesk/customer/portal/13"},
+	   {"Acknowledgement of Sensitive Groups Queries:" : "http://fawwebintprod1.momentum.co.za:62080/prodMan/prodMan/jsf/login/adLogon.faces"},
+	    {"Sharepoint - IBM Connections -RPG Developers Wiki:" : "https://mmiholdingsltd.sharepoint.com/sites/MC-RPG-Developers"},
+		{"Citrix Access:" : "https://mmltdprd.cloud.com/"},
+	   {"Control Panel:" : "C://desktop/Control Panel/"},
+	   {"Control Panel:" : "C://desktop/Control Panel/User Accounts/Credential Manager"},
+	   {"AS400  Reset Password:" : "https://as400reset.metmom.mmih.biz/"},
+	   {"ORBIT Portal (NEW):"  :  "http://mebblddev201.metmom.mmih.biz/"}
+	]}
+  </div>
+     <!-- <h1>Online self development</h1>
+	  <a href="https://www.pdf2go.com/pdf-to-powerpoint">PDF to PPT (3 upload maximum same time)</a><br>
+	  <a href=""Https://docs.oracle.com/en/cloud/saas/index.html">LEARNING DEVELOPMENTS</a><br>
+	  <a href="https://ienabler.tut.ac.za/pls/prodi41/w99pkg.mi_login?numtype=S">TUT student portal</a> -->
+	  
+	  <style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 500px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+<div class="dropdown">
+  <h2><span>Business Analyst Training Centers</span></h2>
+  <div class="dropdown-content">
+  <p><a href="https://www.theknowledgeacademy.com/za/courses/iiba-business-analysis-training/#topicData">The Acknowledge ACADEMY</a><br></p>
+  <p><a href="https://www.fti.co.za/certificate-programme-in-business-analysis/">FACULTY TRAINING INSTITUTION</a><br></p>
+  <p><a href="https://it-academy.co.za/course.asp?skuID=SKU062">IT-ACADEMY</a><br></p>
+  <p><p><a href="https://www.getsmarter.com/products/uct-business-systems-analysis-online-short-course">University of Cape Town</a><br></p></p>
+  </div>
+</div>
+	  
+</body>
+</html>

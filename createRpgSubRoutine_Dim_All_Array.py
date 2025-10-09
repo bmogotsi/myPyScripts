@@ -9,12 +9,12 @@
         a. check if line is Stand Alone field or List field
             field_and_value_separator = ["=", "]  Value [", " : "]
             a01. skip if field value is blank, zero or empty
-            a02. if field is NOT Stand Alone or List
-                - get Request Handler name
-                - get Program name
-                - get Copybook name
-             a03. extract field name and field value
-        C. change to RPG eval statements
+            a02. extract field name and field value
+        b.  . if field is NOT Stand Alone or List
+            - get Request Handler name
+            - get Program name
+            - get Copybook name
+        c. change to RPG eval statements
 """
 
 import re, pathlib
@@ -285,12 +285,42 @@ try:
 
         return ret_begSr, ret_Call, ret_endSr
 
+    def get_Standalone_List(inStr):
+            patternStandalone = re.compile(r"(\s+)?=(\s+)?\[(\w+)\]")  # has = sign
+            patternStandalone2 = re.compile(r"\](\s+)?Value(\s+)?\[\w+\]") # "]  Value ["
+            patternStandalone3 = re.compile(r"(?<!\w)\w+:") # ":"
+            patternList = re.compile(r"(\w+)(\s+)?=(\s+)?0\)") # has 0)
+            patternList2 = re.compile(r"\](\s+)?value(\s+)?\[\[\w+\]\]") # has "]  Value [["
+
+            if re.search(patternStandalone, inStr, re.IGNORECASE): # Case-sensitive by default
+                field_is_Standalone = True
+                return field_is_Standalone, False
+            elif re.search(patternStandalone2, inStr, re.IGNORECASE):
+                field_is_Standalone = True
+                return field_is_Standalone, False
+            elif re.search(patternStandalone3, inStr, re.IGNORECASE):
+                field_is_Standalone = True
+                return field_is_Standalone, False
+            elif re.search(patternList, inStr, re.IGNORECASE):
+                field_is_List = True
+                return False, field_is_List
+            elif re.search(patternList2, inStr, re.IGNORECASE):
+                field_is_List = True
+                return False, field_is_List
+            else:
+                return False, False
+
+    """
+        ################################----------------------------------#################################
+        ################################----------------------------------#################################
+                                            Main Program
+        ################################----------------------------------#################################
+        ################################----------------------------------#################################
+    """
+    # main program starts here
     datenow = datetime.now()
     datestrftime= datenow.strftime('%Y%m%d%h%m')
     datefileext = datestrftime + '.txt'
-    print(datenow)
-    print(datestrftime)
-    print(datefileext)
 
     # masking
     ## first 2 rows is for masking
@@ -308,14 +338,14 @@ try:
 
     """ it all starts here
         1. find a specific text files in the directory
-          2. read the text file
-          3. extract the java logs
-          4. change to RPG eval statements
-          5. use regEx to extract and change
-          6. append RPG Statements to a text file
+        2. read the text file
+        3. extract the java logs
+        4. use regEx to extract and change
+        5. change to RPG eval statements
+        6. append RPG Statements to a text file
     """
 
-    startStr ='updater.inParameters.'
+    stripStr =['updater.inParameters.', '[', ']' ]
     with open(inputpath) as f:
         lines = f.readlines()
         #append text file
@@ -331,13 +361,10 @@ try:
             if l.strip().endswith('=[]]')\
                 or '\n' == l.strip() \
                 or re.search(re.compile(r"(?<!\w)\d+:\n"), l.lower())\
-                    : # skip blank/zeros fields STAND Alone
+                or re.search(re.compile(r"(?<!\w)\w+:\s"), l.lower()) :  # skip blank/zeros or empty field values
                     continue
 
-            patternStandalone = re.compile(r"(\s+)?=(\s+)?\[(\w+)\]")
-            patternStandalone2 = re.compile(r"\](\s+)?Value(\s+)?\[\w+\]") # occurs=[10]
-            patternList = re.compile(r"(\w+)(\s+)?=(\s+)?0\)")
-            patternList2 = re.compile(r"\](\s+)?value(\s+)?\[\[\w+\]\]")
+            patternStandalone, patternList = get_Standalone_List(l)
             patternOccurs = re.compile(r"occurs(\s+)?=(\s+)?")
             field_is_Standalone = False
             field_is_List = False
