@@ -12,7 +12,7 @@ import csv
 
 # import date
 # path_source = 'C:/Users/Ben.Mogotsi/myPyScripts/'
-cwd = cwd = Path.cwd()
+cwd = Path.cwd()
 path_target = 'C:/Users/Ben.Mogotsi/myPyScripts/'
 # path_source=r'C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles'
 path_source = cwd
@@ -149,7 +149,7 @@ try:
     fileobj_txt, file_txt_name = open_file(file_name, ".txt")
     fileobj_csv, file_csv_name = open_file(file_name, ".csv")
     
-    string_to_find = "with "    
+    string_to_find = "import date"    
     for file in Path(path_source).glob('*'):
         if file.is_file():
             print(f" {file.name} ")

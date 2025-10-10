@@ -1,6 +1,3 @@
 
-'with ' found in D:\gitWorkspace\gitGitHub\myPyScripts\createRpgSubRoutine_mbrInstall.py
-'with ' found in D:\gitWorkspace\gitGitHub\myPyScripts\fra.txt
-'with ' found in D:\gitWorkspace\gitGitHub\myPyScripts\License.md
-'with ' found in D:\gitWorkspace\gitGitHub\myPyScripts\regex_reSub.py
-'with ' found in D:\gitWorkspace\gitGitHub\myPyScripts\search_string_in_file_full_read.csv
+'import date' found in D:\gitWorkspace\gitGitHub\myPyScripts\createRpgSubRoutine_mbrInstall.py
+'import date' found in D:\gitWorkspace\gitGitHub\myPyScripts\search_string_in_file_full_read.csv
