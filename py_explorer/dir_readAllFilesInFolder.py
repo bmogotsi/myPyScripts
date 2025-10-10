@@ -8,6 +8,7 @@ import datetime
 from datetime import date
 import re
 import csv
+import os
 
 
 # import date
@@ -155,8 +156,11 @@ try:
             print(f" {file.name} ")
             full_path = Path(path_source) / Path(file.name) 
             if search_string_in_file_full_read(full_path, string_to_find):
+                ## doubleslash = str(full_path).replace("\\", "/") instead use f"{full_path}" this will remove the escaped "\\" double backslash
+                single_slash_fullpath = str(full_path).replace("\\", "/")
+                ## doubleslash2 = full_path.realpath(full_path)
                 write_to_file(fileobj_txt, file_txt_name, f"'{string_to_find}' found in {full_path}")
-                write_to_file(fileobj_csv, file_csv_name, [full_path, string_to_find, 'Yes'])
+                write_to_file(fileobj_csv, file_csv_name, [single_slash_fullpath, string_to_find, 'Yes'])
                 continue
                 print(f"'{string_to_find}' found in {full_path}")
             elif False:

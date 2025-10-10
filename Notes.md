@@ -10,3 +10,10 @@ def normalize(line):
     fra = "[start] " + fra + " [end]"
     return eng, fra
 
+
+    https://towardsdatascience.com/you-only-need-3-things-to-turn-ai-experiments-into-ai-advantage/
+    https://towardsdatascience.com/dont-follow-generic-ml-engineer-roadmaps-do-this-instead-2/
+    https://towardsdatascience.com/how-to-learn-the-math-needed-for-machine-learning/
+    https://towardsdatascience.com/implementing-the-coffee-machine-in-python/
+    https://towardsdatascience.com/implementing-the-hangman-game-in-python/
+

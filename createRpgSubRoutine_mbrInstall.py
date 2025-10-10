@@ -104,7 +104,7 @@ try:
         #could not determine type
         return "ERROR"
 
-    inputpath = 'C:/Users/Ben.Mogotsi/Downloads/delete_/Member_Install_Error_Raw.txt'
+    inputpath = 'C:/Users/Ben.Mogotsi/Downloads/delete_/srcmbr/Member_Install_Error_Raw.txt'
     outputpath = 'C:/Users/Ben.Mogotsi/Downloads/delete_/'
     outputfile = 'RPG_Eval_Statements'
 
