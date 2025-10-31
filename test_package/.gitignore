@@ -1,6 +1,12 @@
 # Python File Explorer (OS Module) py_fileExplorer
 credentials-sheets.json
 credentials.json
+<<<<<<< HEAD
+=======
+secretes.json
+selotlolo.md
+selotlolo.*
+>>>>>>> 4982925 (Merge branch 'main' of https://github.com/bmogotsi/myPyScripts)
 token.json
 token-drive.pickle
 token-sheets.pickle
