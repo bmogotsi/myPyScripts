@@ -1,11 +1,15 @@
 
-<<<<<<< HEAD
-'import date' found in D:\gitWorkspace\gitGitHub\myPyScripts\createRpgSubRoutine_mbrInstall.py
-'import date' found in D:\gitWorkspace\gitGitHub\myPyScripts\search_string_in_file_full_read.csv
-=======
-'with ' found in C:\Users\Ben.Mogotsi\myPyScripts\createRpgSubRoutine_mbrInstall.py
-'with ' found in C:\Users\Ben.Mogotsi\myPyScripts\fra.txt
-'with ' found in C:\Users\Ben.Mogotsi\myPyScripts\License.md
-'with ' found in C:\Users\Ben.Mogotsi\myPyScripts\regex_reSub.py
-'with ' found in C:\Users\Ben.Mogotsi\myPyScripts\search_string_in_file_full_read.csv
->>>>>>> 565262dc78dfa721f0dfabbba61e6b7af766f2f7
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\csrAut
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\csrAut - Copy
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\delete_Fou
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\delete_Fou - Copy
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\installation_Reclassification_1_17_MbrSelect
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\installation_Reclassification_1_17_MbrSelect - Copy
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\jrn_Entries_202205
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\jrn_Entries_202205 - Copy
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\reconSupport_SalaryChange_FAWBM_sep12
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\reconSupport_SalaryChange_FAWBM_sep12 - Copy
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\Release_2020Nov26_SANDTON2
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\Release_2020Nov26_SANDTON2 - Copy
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\Support_Bugzilla_Jira_Updates
+''update' found in C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles\Support_Bugzilla_Jira_Updates - Copy

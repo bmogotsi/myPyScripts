@@ -9,14 +9,15 @@ from datetime import date
 import re
 import csv
 import os
-
+import traceback
 
 # import date
 # path_source = 'C:/Users/Ben.Mogotsi/myPyScripts/'
 cwd = Path.cwd()
 path_target = 'C:/Users/Ben.Mogotsi/myPyScripts/'
 # path_source=r'C:\Users\Ben.Mogotsi\OneDrive - Momentum Group\Documents\My Documents\Liscoe\SquirreL_myFiles'
-path_source = cwd
+# path_source = cwd
+path_source = "C:/Users/Ben.Mogotsi/OneDrive - Momentum Group/Documents/My Documents/Liscoe/SquirreL_myFiles"
 
 try:
     def search_string_in_file_full_read(file_path, search_string):
@@ -31,8 +32,13 @@ try:
             bool: True if the string is found, False otherwise.
         """
         try:
-            with open(file_path, 'r', encoding='utf-8') as file:
-                content = file.read()
+            # with open(file_path, 'r', encoding='utf-8') as file:
+            with open(file_path, 'r') as file:
+                try:
+                    content = str(file.read().encode('utf-8'))
+                except UnicodeDecodeError:
+                    content = str(file.read().encode('cp1252')) # Fallback encoding for Windows-1252
+
                 search_string.find(search_string) != -1
                 if re.search(search_string, content, re.IGNORECASE):
                         return True
@@ -47,7 +53,7 @@ try:
         except FileNotFoundError:
             print(f"Error: File not found at {file_path}")
             return False
-            
+
     def create_file(fileName, suffix):
         """
             Create an empty file name
@@ -57,8 +63,8 @@ try:
             suffix = ".txt"
         if suffix[0] != ".":
             suffix = "." + suffix
-            
-        # create file if it does not exist       
+
+        # create file if it does not exist
         # if not Path(fileName+suffix).exists():
         if suffix == ".txt":
             file=open(fileName+suffix, mode="w",encoding="utf-8") # clears file if it exists
@@ -69,16 +75,16 @@ try:
                 writer = csv.writer(file, quoting=csv.QUOTE_NONE,
                                     delimiter=',', quotechar='"', escapechar='\\')
                 writer.writerows(new_headings)
-        
+
     def open_file(fileName, suffix):
         """
             Open file in append mode
-            create file if it does not exist   
-                    
+            create file if it does not exist
+
         """
-        # create file if it does not exist   
+        # create file if it does not exist
         # append file
-        
+
         if suffix == "":
             suffix = ".txt"
         if suffix[0] != ".":
@@ -95,36 +101,36 @@ try:
                                     delimiter=',', quotechar='"', escapechar='\\')
             return writer, fileName+suffix
 
-        
+
     def close_file(fileObj):
         """
-            Close file 
-                        
+            Close file
+
         """
         if fileObj is not None:
             fileObj.close()
-            
+
     def is_csv_writer(obj):
         """
         Checks if an object behaves like a csv.writer by checking for the 'writerow' method.
         """
-        return hasattr(obj, 'writerow') and callable(getattr(obj, 'writerow'))  
-        
+        return hasattr(obj, 'writerow') and callable(getattr(obj, 'writerow'))
+
     def write_to_file(fileobj, filename, new_line, blank_lines=1):
         """
             Write text string to text file
                 add blank lines before
                 new_line: text to write to file
                 blank_lines: number of blank lines to add before writing the new line
-                
+
         """
-        
-        if fileobj is not None:  
+
+        if fileobj is not None:
             if is_csv_writer(fileobj):
                 # If fileobj is a CSV writer, write a row
                 # fileobj.writerow(new_line)  # Write the new line
                 with open(filename, 'a', newline='') as file:
-                    # writer = csv.writer(file,  
+                    # writer = csv.writer(file,
                     #                     delimiter=',', quotechar='"', escapechar='\\') # quoting=csv.QUOTE_NONE "not required for blank lines"
                     #                     #
                     # # Write blank lines before writing the new line
@@ -141,20 +147,20 @@ try:
             return True
         else:
             return False
-    
+
 
     file_name = "search_string_in_file_full_read"
     create_file(file_name, ".txt")
     create_file(file_name, ".csv")
-    
+
     fileobj_txt, file_txt_name = open_file(file_name, ".txt")
     fileobj_csv, file_csv_name = open_file(file_name, ".csv")
-    
-    string_to_find = "import date"    
+
+    string_to_find = "'update"
     for file in Path(path_source).glob('*'):
         if file.is_file():
             print(f" {file.name} ")
-            full_path = Path(path_source) / Path(file.name) 
+            full_path = Path(path_source) / Path(file.name)
             if search_string_in_file_full_read(full_path, string_to_find):
                 ## doubleslash = str(full_path).replace("\\", "/") instead use f"{full_path}" this will remove the escaped "\\" double backslash
                 single_slash_fullpath = str(full_path).replace("\\", "/")
@@ -182,12 +188,13 @@ try:
 
 except Exception as e:
     print(f"Error: {str(e)}")
-    
+    traceback.print_exc()
+
 finally:
     if 'fileobj_txt' in locals() and not fileobj_txt.closed: # Check if file object exists and is open
         close_file(fileobj_txt)
     #  if 'fileobj_csv' in locals() and not fileobj_csv.closed: # Check if file object exists and is open
     #      close_file(fileobj_csv)
     print("File closed successfully.")
-    
+
 quit()

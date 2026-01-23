@@ -44,12 +44,18 @@ try:
         if matcher:  # works ['45.60'/'817600.0'] treated as float
             return 'F'
 
+        # Mobile Number
+        pattern = re.compile(r"^\+[0-9]+")   # works ['45.60'/'817600.0'] treated as float
+        matcher = pattern.fullmatch(input_str.strip())
+        if matcher:  # works [+27762588478] treated as String
+            return 'S'
+
         #numeric
         pattern      = re.compile(r"^[0-9]+")
         input_str    = inStr.strip()
         matcher = pattern.findall(input_str.strip())
         if matcher:
-            if fieldName.strip()[-4:] == 'CODE':
+            if fieldName.strip()[-4:] == 'CODE' or fieldName.strip()[-4:] == 'IDNO' :
                 return 'S'
             else:
                 if str(input_str).strip().isdecimal() == True: # works ['17602550'] treated as interger
