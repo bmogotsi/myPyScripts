@@ -2,7 +2,9 @@
 credentials-sheets.json
 credentials.json
 secretes.*
+secretes.json
 selotlolo.*
+secretes.json
 selotlolo.md
 token.json
 token-drive.pickle
@@ -63,3 +65,4 @@ https://gist.github.com/octocat/9257657
 .Spotlight-V100
 .Trashes
 ehthumbs.db
+secretes,json
