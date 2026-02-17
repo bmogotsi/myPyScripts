@@ -1,0 +1,15 @@
+
+select * from "FAW.BM"/fscodpf where  codcodtype = 'ACCRECMOD'
+
+select * from "FAW.BM"/fscodpf where  codcodtype = 'ACCRECPART'
+
+insert into fscodpf 
+select * from "FAW.BM"/fscodpf where  codcodtype = 'ACCRECMOD'
+
+insert into fscodpf 
+select * from "FAW.BM"/fscodpf where  codcodtype = 'ACCRECPART'
+
+select * from "FAW.BM"/FCAUTPF where   AUTPROCESS= 'ACCRECJDE'
+
+insert into FCAUTPF
+select * from "FAW.BM"/FCAUTPF where   AUTPROCESS= 'ACCRECJDE'

@@ -1,0 +1,8 @@
+select * from ftlthpf WHERE LTHTYPE='FEEADVASTALL' 
+and lthperno = 1386412
+
+select * from ftafhpf WHERE afHtrxTYPE='FEEADVASTALL' 
+and afhperno = 1386412
+
+select * from ftafhpf WHERE afHtrxTYPE='FEEADVASTALL' 
+and afhperno = 1386412
