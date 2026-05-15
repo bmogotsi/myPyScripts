@@ -24,3 +24,6 @@ git push -u origin main
         ├── __init__.py
         ├── module2.py
         
+
+# SiD Lunch & Learn: How Agentic AI Actually Finishes Your Code (Not Just Writes It)
+https://www.youtube.com/watch?v=KDWRRCC6Qm4
